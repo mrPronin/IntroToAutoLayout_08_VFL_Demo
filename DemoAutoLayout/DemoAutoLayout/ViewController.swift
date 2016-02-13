@@ -88,68 +88,27 @@ class ViewController: UIViewController {
     rightButton.setTitle("Button", forState: .Normal)
     view.addSubview(rightButton)
     
+    let views = ["firstNameLabel": firstNameLabel, "firstNameTextField": firstNameTextField, "lastNameLabel": lastNameLabel, "lastNameTextField": lastNameTextField, "popStarLabel": popStarLabel, "popStarTextField": popStarTextField, "statesLabel": statesLabel, "statesTextField": statesTextField, "rapperLabel": rapperLabel, "rapperTextField": rapperTextField, "realAgeLabel": realAgeLabel, "realAgeTextField": realAgeTextField, "leftButton": leftButton, "rightButton": rightButton]
+    
     let container = UILayoutGuide()
     view.addLayoutGuide(container)
-    
-    firstNameLabel.leadingAnchor.constraintEqualToAnchor(container.leadingAnchor).active = true
-    
-    firstNameTextField.firstBaselineAnchor.constraintEqualToAnchor(firstNameLabel.firstBaselineAnchor).active = true
-    firstNameTextField.leadingAnchor.constraintEqualToAnchor(firstNameLabel.trailingAnchor, constant: 8).active = true
+    container.centerYAnchor.constraintEqualToAnchor(view.centerYAnchor).active = true
     firstNameTextField.topAnchor.constraintEqualToAnchor(container.topAnchor).active = true
-    firstNameTextField.trailingAnchor.constraintEqualToAnchor(container.trailingAnchor).active = true
-    
-    lastNameLabel.leadingAnchor.constraintEqualToAnchor(firstNameLabel.leadingAnchor).active = true
-    popStarLabel.leadingAnchor.constraintEqualToAnchor(firstNameLabel.leadingAnchor).active = true
-    statesLabel.leadingAnchor.constraintEqualToAnchor(firstNameLabel.leadingAnchor).active = true
-    rapperLabel.leadingAnchor.constraintEqualToAnchor(firstNameLabel.leadingAnchor).active = true
-    realAgeLabel.leadingAnchor.constraintEqualToAnchor(firstNameLabel.leadingAnchor).active = true
-    
-    lastNameLabel.trailingAnchor.constraintEqualToAnchor(firstNameLabel.trailingAnchor).active = true
-    popStarLabel.trailingAnchor.constraintEqualToAnchor(firstNameLabel.trailingAnchor).active = true
-    statesLabel.trailingAnchor.constraintEqualToAnchor(firstNameLabel.trailingAnchor).active = true
-    rapperLabel.trailingAnchor.constraintEqualToAnchor(firstNameLabel.trailingAnchor).active = true
-    realAgeLabel.trailingAnchor.constraintEqualToAnchor(firstNameLabel.trailingAnchor).active = true
-    
-    lastNameTextField.leadingAnchor.constraintEqualToAnchor(firstNameTextField.leadingAnchor).active = true
-    popStarTextField.leadingAnchor.constraintEqualToAnchor(firstNameTextField.leadingAnchor).active = true
-    statesTextField.leadingAnchor.constraintEqualToAnchor(firstNameTextField.leadingAnchor).active = true
-    rapperTextField.leadingAnchor.constraintEqualToAnchor(firstNameTextField.leadingAnchor).active = true
-    realAgeTextField.leadingAnchor.constraintEqualToAnchor(firstNameTextField.leadingAnchor).active = true
-    
-    lastNameTextField.trailingAnchor.constraintEqualToAnchor(firstNameTextField.trailingAnchor).active = true
-    popStarTextField.trailingAnchor.constraintEqualToAnchor(firstNameTextField.trailingAnchor).active = true
-    statesTextField.trailingAnchor.constraintEqualToAnchor(firstNameTextField.trailingAnchor).active = true
-    rapperTextField.trailingAnchor.constraintEqualToAnchor(firstNameTextField.trailingAnchor).active = true
-    realAgeTextField.trailingAnchor.constraintEqualToAnchor(firstNameTextField.trailingAnchor).active = true
-    
-    lastNameTextField.firstBaselineAnchor.constraintEqualToAnchor(lastNameLabel.firstBaselineAnchor).active = true
-    lastNameTextField.topAnchor.constraintEqualToAnchor(firstNameTextField.bottomAnchor, constant: 8).active = true
-    
-    popStarTextField.firstBaselineAnchor.constraintEqualToAnchor(popStarLabel.firstBaselineAnchor).active = true
-    popStarTextField.topAnchor.constraintEqualToAnchor(lastNameTextField.bottomAnchor, constant: 8).active = true
-    
-    statesTextField.firstBaselineAnchor.constraintEqualToAnchor(statesLabel.firstBaselineAnchor).active = true
-    statesTextField.topAnchor.constraintEqualToAnchor(popStarTextField.bottomAnchor, constant: 8).active = true
-    
-    rapperTextField.firstBaselineAnchor.constraintEqualToAnchor(rapperLabel.firstBaselineAnchor).active = true
-    rapperTextField.topAnchor.constraintEqualToAnchor(statesTextField.bottomAnchor, constant: 8).active = true
-    
-    realAgeTextField.firstBaselineAnchor.constraintEqualToAnchor(realAgeLabel.firstBaselineAnchor).active = true
-    realAgeTextField.topAnchor.constraintEqualToAnchor(rapperTextField.bottomAnchor, constant: 8).active = true
     realAgeTextField.bottomAnchor.constraintEqualToAnchor(container.bottomAnchor).active = true
     
-    let margins = view.layoutMarginsGuide
-    container.centerYAnchor.constraintEqualToAnchor(view.centerYAnchor).active = true
-    container.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor).active = true
-    container.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor).active = true
+    NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[firstNameLabel]-[firstNameTextField]-|", options: .AlignAllBaseline, metrics: nil, views: views))
+    NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[lastNameLabel]-[lastNameTextField]-|", options: .AlignAllBaseline, metrics: nil, views: views))
+    NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[popStarLabel]-[popStarTextField]-|", options: .AlignAllBaseline, metrics: nil, views: views))
+    NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[statesLabel]-[statesTextField]-|", options: .AlignAllBaseline, metrics: nil, views: views))
+    NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[rapperLabel]-[rapperTextField]-|", options: .AlignAllBaseline, metrics: nil, views: views))
+    NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[realAgeLabel]-[realAgeTextField]-|", options: .AlignAllBaseline, metrics: nil, views: views))
     
-    leftButton.leadingAnchor.constraintEqualToAnchor(margins.leadingAnchor).active = true
-    leftButton.bottomAnchor.constraintEqualToAnchor(bottomLayoutGuide.topAnchor, constant: -20).active = true
+    NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[firstNameTextField]-[lastNameTextField]-[popStarTextField]-[statesTextField]-[rapperTextField]-[realAgeTextField]", options: [.AlignAllLeading, .AlignAllTrailing], metrics: nil, views: views))
     
-    rightButton.trailingAnchor.constraintEqualToAnchor(margins.trailingAnchor).active = true
-    rightButton.leadingAnchor.constraintEqualToAnchor(leftButton.trailingAnchor, constant: 8).active = true
-    rightButton.bottomAnchor.constraintEqualToAnchor(leftButton.bottomAnchor).active = true
-    rightButton.widthAnchor.constraintEqualToAnchor(leftButton.widthAnchor).active = true
+    let metrics = ["bottomGap": 20]
+    
+    NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[leftButton]-[rightButton(==leftButton)]-|", options: .AlignAllBottom, metrics: nil, views: views))
+    NSLayoutConstraint.activateConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[rightButton]-(bottomGap)-|", options: [], metrics: metrics, views: views))
   }
 
   override func didReceiveMemoryWarning() {
